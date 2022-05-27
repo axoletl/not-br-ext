@@ -1,5 +1,6 @@
 export async function update() {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
+    //TODO: wont run when not active tab, if you open a link in a new tab and switch later auto just wont run
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
@@ -17,6 +18,7 @@ function parse() {
             //roughly check dom changes, resize and mutation observers are finicky
             const dom = document.getElementsByTagName('*')
             let lastLength = dom.length
+            //TODO: find some way to remove duplicate intervals
             setInterval(() => {
                 // console.log(dom.length, lastLength)
                 if (dom.length != lastLength) {
