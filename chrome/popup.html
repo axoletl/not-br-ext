@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link href="notbr-ext.css" rel="stylesheet">
+    <style id="prevStyle">
+
+    </style>
+</head>
+
+<body>
+    <div class="controls">
+        <div>
+            <div>
+                <label for="fxEl">(Not) Fixation</label>
+                <input id="fxEl" type="range" min="0" max="10">
+            </div>
+            <div>
+                <label for="scdEl">(Not) Saccade</label>
+                <input id="scdEl" type="range" min="0" max="10">
+            </div>
+            <div>
+                <label for="opcEl">(Not) Opacity</label>
+                <input id="opcEl" type="range" min="0" max="100">
+            </div>
+        </div>
+        <div>
+            <div>
+                <label for="szEl">Font Size</label>
+                <input id="szEl" type="range" min="8" max="32">
+            </div>
+            <div>
+                <label for="hgtEl">Line Height</label>
+                <input id="hgtEl" type="range" min="0" max="10">
+            </div>
+            <div>
+                <label for="spcEl">Letter Spacing</label>
+                <input id="spcEl" type="range" min="0" max="32">
+            </div>
+        </div>
+        <button id="runEl">Convert!</button>
+        <div class="controls__flex">
+            <input id="autoEl" type="checkbox" name="">
+            <label for="autoEl">Auto convert</label>
+        </div>
+    </div>
+
+    <div id="preview" class="preview">
+    </div>
+
+    <script src="popup.js" type="module"></script>
+</body>
+
+</html>

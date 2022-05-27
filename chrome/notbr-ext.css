@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: sans-serif;
+}
+
+:root {
+    font-size: 16px;
+}
+
+body, html {
+    background-color: transparent;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+input {
+    width: 100%;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 20rem;
+    padding: 1rem;
+}
+
+.controls > .span2 {
+    grid-column-end: span 2;
+}
+
+.controls__flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.controls__flex > input {
+    width: fit-content;
+}
+
+.preview {
+    width: 100%;
+    padding: 1rem;
+    padding-top: 0rem;
+    word-wrap: break-word;
+    word-break: break-word;
+}

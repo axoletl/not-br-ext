@@ -1,0 +1,20 @@
+{
+    "name": "notBR",
+    "description": "A reading accessibility extension that is not related to any prohibitively overpriced API.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "contextMenus"
+    ],
+    "host_permissions": ["*://*/"],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
