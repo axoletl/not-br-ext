@@ -68,7 +68,7 @@ function parse() {
             }
             let styleEl = document.createElement('STYLE')
             styleEl.id = 'not-br-style'
-            styleEl.innerHTML = `.notbr-text { display: inline; font-weight: 400; white-space: pre-wrap; font-size: ${controls.size}px; letter-spacing: ${controls.spacing}px; line-height: ${parseInt(controls.size) + parseInt(controls.height)}px; margin-top: 0; margin-bottom: 0;} .notbr-fixation { font-weight: 700; opacity: ${controls.opacity / 100}; }`
+            styleEl.innerHTML = `.notbr-text { display: inline; font-weight: 400; font-size: ${controls.size}px; letter-spacing: ${controls.spacing}px; line-height: ${parseInt(controls.size) + parseInt(controls.height)}px; margin-top: 0; margin-bottom: 0;} .notbr-fixation { font-weight: 700; opacity: ${controls.opacity / 100}; }`
             document.head.appendChild(styleEl)
         }
 

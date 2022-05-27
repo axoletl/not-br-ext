@@ -56,7 +56,7 @@ chrome.runtime.onStartup.addListener(
 runEl.addEventListener("click", update)
 
 function updatePreview() {
-    prevStyle.innerHTML = `.notbr-text { display: inline; font-weight: 400; white-space: pre-wrap; font-size: ${controlsLocal.size}px; letter-spacing: ${controlsLocal.spacing}px; line-height: ${parseInt(controlsLocal.size) + parseInt(controlsLocal.height)}px; margin-top: 0; margin-bottom: 0;} .notbr-fixation { font-weight: 700; opacity: ${controlsLocal.opacity / 100}; }`
+    prevStyle.innerHTML = `.notbr-text { display: inline; font-weight: 400; font-size: ${controlsLocal.size}px; letter-spacing: ${controlsLocal.spacing}px; line-height: ${parseInt(controlsLocal.size) + parseInt(controlsLocal.height)}px; margin-top: 0; margin-bottom: 0;} .notbr-fixation { font-weight: 700; opacity: ${controlsLocal.opacity / 100}; }`
 
     const scdFreq = parseInt(scdEl.max) + 1 - parseInt(controlsLocal.saccade)
     let inputArray = prevText.split(/[ ]/gmiu)
