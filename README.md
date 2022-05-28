@@ -24,4 +24,4 @@ Known Issues and limitations:
   
 <br />
   
-Let me know either on this repo's issues page or at this [Twitter thread]()
+Let me know either on this repo's issues page or at this [Twitter thread](https://twitter.com/axoletlmusic/status/1530383026597003265)
