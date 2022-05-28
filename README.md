@@ -27,5 +27,7 @@ The extension is still in an **early stage!** To load it:
   
 🥺Todo/nice to have:
 - Font override and OpenDyslexic implementation
-
+  
+<br />
+  
 ✏Let me know any feedback either on this repo's issues page or at this [Twitter thread](https://twitter.com/axoletlmusic/status/1530383026597003265)
