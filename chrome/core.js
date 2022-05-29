@@ -11,6 +11,8 @@ export async function update() {
 function parse() {
     chrome.storage.sync.get("controls", ({ controls }) => {
 
+        const ignoreEl = ['script', 'style', 'noscript', 'textarea', 'input']
+
         if (controls.auto) {
             autoLoad()
         }
@@ -84,13 +86,14 @@ function parse() {
             const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false)
             while (walker.nextNode()) {
                 const curr = walker.currentNode
+                const nodeName = curr.parentElement.nodeName.toLowerCase()
                 if (curr.nodeValue.trim().length < 1) {
                     continue
                 }
                 if (curr.parentElement.classList.contains('notbr-text') || curr.parentElement.classList.contains('notbr-fixation')) {
                     continue
                 }
-                if (curr.parentElement.nodeName.toLowerCase() == 'style' || curr.parentElement.nodeName.toLowerCase() == 'script' || curr.parentElement.nodeName.toLowerCase() == 'noscript') {
+                if (ignoreEl.some(el => el === nodeName)) {
                     continue
                 }
                 elArray.push(curr)
