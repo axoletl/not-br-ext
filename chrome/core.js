@@ -1,3 +1,6 @@
+// import GraphemeSplitter from "./lib/graphemeSplitter.js"
+// WIP
+
 export async function update() {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
     //TODO: wont run when not active tab, if you open a link in a new tab and switch later auto just wont run
@@ -10,6 +13,7 @@ export async function update() {
 
 function parse() {
     chrome.storage.sync.get("controls", ({ controls }) => {
+        //TODO: this is all browser agnostic code, should probably be the only thing in core, and just have everything else in an event.js or smth
 
         const ignoreEl = ['script', 'style', 'noscript', 'textarea', 'input']
 
@@ -87,13 +91,11 @@ function parse() {
             while (walker.nextNode()) {
                 const curr = walker.currentNode
                 const nodeName = curr.parentElement.nodeName.toLowerCase()
-                if (curr.nodeValue.trim().length < 1) {
-                    continue
-                }
-                if (curr.parentElement.classList.contains('notbr-text') || curr.parentElement.classList.contains('notbr-fixation')) {
-                    continue
-                }
-                if (ignoreEl.some(el => el === nodeName)) {
+                const checkLength = curr.nodeValue.trim().length < 1
+                const checkConvert = curr.parentElement.classList.contains('notbr-text') || curr.parentElement.classList.contains('notbr-fixation')
+                const checkIgnore = ignoreEl.some(el => el === nodeName)
+                const checkEditable = curr.parentElement.isContentEditable
+                if (checkLength || checkConvert || checkIgnore || checkEditable) {
                     continue
                 }
                 elArray.push(curr)
