@@ -1,7 +1,7 @@
 # Not-br (Chrome) Extension
 ✨This is an extension implementation of [not-BR](https://github.com/axoletl/not-br/) for (currently) Chrome.  
 The extension is still in an **early stage!** To load it:
-1. Download **"Source Code (zip)"** from the [releases page](https://github.com/axoletl/not-br-ext/releases/tag/main)
+1. Download the latest **"Source Code (zip)"** from the [releases page](https://github.com/axoletl/not-br-ext/releases) (under **"Assets"**)
 2. Extract its contents wherever
 3. On Google Chrome, go to `chrome://extensions/`
 4. Check **"Developer mode"** in the top right hand corner on
