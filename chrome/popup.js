@@ -1,4 +1,4 @@
-import { update } from "./core.js"
+import { update } from "./event.js"
 
 const fxEl = document.getElementById('fxEl')
 const scdEl = document.getElementById('scdEl')

@@ -23,7 +23,6 @@ The extension is still in an **early stage!** To load it:
 - Pages may just get really messed up by the conversion, please feel free to report these as things can be done to mitigate this, but please be aware that I can't selectively change features for specific webpages, every webpage is structured differently because the web is built on silly string!
 - Text using angle brackets(<>) might get messed up, this is due to the way the parsing works, testing solutions for this, sorry!
 - Investigate... whatever the fuck is going on with emojis (Potentially implementing GraphemeSplitter)
-- Should probably filter out text/number inputs + textarea + contentEditable (Fix testing)
   
 <br />
   

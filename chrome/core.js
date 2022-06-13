@@ -1,20 +1,10 @@
-// import GraphemeSplitter from "./lib/graphemeSplitter.js"
-// WIP
+const splitter = new GraphemeSplitter()
 
-export async function update() {
-    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
-    //TODO: wont run when not active tab, if you open a link in a new tab and switch later auto just wont run
-
-    chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        function: parse,
-    })
-}
+parse()
 
 function parse() {
     chrome.storage.sync.get("controls", ({ controls }) => {
-        //TODO: this is all browser agnostic code, should probably be the only thing in core, and just have everything else in an event.js or smth
-
+        //TODO: this needs to be browser agnostic code or polyfilled
         const ignoreEl = ['script', 'style', 'noscript', 'textarea', 'input']
 
         if (controls.auto) {
@@ -26,7 +16,6 @@ function parse() {
             let lastLength = dom.length
             //TODO: find some way to remove duplicate intervals
             setInterval(() => {
-                // console.log(dom.length, lastLength)
                 if (dom.length != lastLength) {
                     console.log('notbr auto updated!', dom.length, lastLength)
                     run()
@@ -48,8 +37,15 @@ function parse() {
                     }
                     const fixPoint = Math.ceil(fxPerc * el.length)
                     const newStr = `<span class="notbr-fixation">${el.slice(0, fixPoint)}</span>${el.slice(fixPoint)}`
-
-                    inputArray[i] = newStr
+                    // const charArray = splitter.splitGraphemes(el)
+                    // charArray[fixPoint - 1] += '</span>'
+                    // const initReduce = '<span class="notbr-fixation">'
+                    // const newStr = charArray.reduce(
+                    //     (prev, curr) => prev + curr,
+                    //     initReduce
+                    // )
+                    // console.log(el, newStr, fixPoint)
+                    inputArray[i] = newStr //how are you fucking different
                 })
                 const initReduce = '<span class="notbr-text">'
                 const sumReduce = inputArray.reduce(

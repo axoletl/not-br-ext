@@ -1,4 +1,4 @@
-import { update } from "./core.js"
+import { update } from "./event.js"
 
 let controls = {
     fixation: 5,
