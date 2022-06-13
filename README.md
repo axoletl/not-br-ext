@@ -28,6 +28,7 @@ The extension is still in an **early stage!** To load it:
   
 🥺Todo/nice to have:
 - Font override and OpenDyslexic implementation
+- Yes this will come to Firefox/Tampermonkey once its feature complete
   
 <br />
   
