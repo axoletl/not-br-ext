@@ -1,5 +1,3 @@
-const splitter = new GraphemeSplitter()
-
 parse()
 
 function parse() {
@@ -32,20 +30,18 @@ function parse() {
                 const scdFreq = (scdMax + 1) - scd
                 const fxPerc = fx / fxMax
                 inputArray.forEach((el, i) => {
-                    if (i % scdFreq !== 0) {
+                    if (i % scdFreq !== 0 || el.length < 1) {
                         return
                     }
                     const fixPoint = Math.ceil(fxPerc * el.length)
-                    const newStr = `<span class="notbr-fixation">${el.slice(0, fixPoint)}</span>${el.slice(fixPoint)}`
-                    // const charArray = splitter.splitGraphemes(el)
-                    // charArray[fixPoint - 1] += '</span>'
-                    // const initReduce = '<span class="notbr-fixation">'
-                    // const newStr = charArray.reduce(
-                    //     (prev, curr) => prev + curr,
-                    //     initReduce
-                    // )
-                    // console.log(el, newStr, fixPoint)
-                    inputArray[i] = newStr //how are you fucking different
+                    // const newStr = `<span class="notbr-fixation">${el.slice(0, fixPoint)}</span>${el.slice(fixPoint)}`
+                    const charArray = Array.from(el)
+                    charArray[fixPoint - 1] += '</span>'
+                    let newStr = '<span class="notbr-fixation">'
+                    charArray.forEach((str) => {
+                        newStr += str
+                    })
+                    inputArray[i] = newStr
                 })
                 const initReduce = '<span class="notbr-text">'
                 const sumReduce = inputArray.reduce(
